@@ -149,8 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</div>
 
 				<div class="form-group">
-					<input type="submit" class="btn btn-block btn-outline-success" value="Submit">
-					<input type="reset" class="btn btn-block btn-outline-primary" value="Reset">
+					<input type="submit" class="btn btn-block btn-outline-success" value="Sign In">
+					<input type="reset" class="btn btn-block btn-outline-primary" value="Clear">
 				</div>
 				<p>Already have an account? <a href="login.php">Login here</a>.</p>
 			</form>

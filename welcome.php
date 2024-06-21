@@ -39,7 +39,7 @@ if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
 				<h4 class="">You are currently logged in as <?php echo $_SESSION['username']; ?></h4>
 			</div>
 
-			<a href="password_reset.php" class="btn btn-block btn-outline-warning">Reset Password</a>
+			<a href="reset-password.php" class="btn btn-block btn-outline-warning">Reset Password</a>
 			<a href="logout.php" class="btn btn-block btn-outline-danger">Sign Out</a>
 		</section>
 	</main>
