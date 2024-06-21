@@ -1,6 +1,6 @@
 # User Authentication with PHP & MySQL
 
-https://youtu.be/S8BTsqqLv9g
+
 
 ## Tech Stack
 
@@ -21,3 +21,5 @@ https://youtu.be/S8BTsqqLv9g
 - Responsive web design with Bootstrap
 - Basic CRUD operations (Create, Read)
 - Session management for user authentication
+
+https://github.com/Nikhar-savaliya/user-authentication/assets/127284370/ad207c28-52d0-4fec-b282-98ff4c6afa63
