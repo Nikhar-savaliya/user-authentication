@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	} else {
 
 		// Prepare a select statement
-		$sql = 'SELECT id FROM login WHERE username = ?';
+		$sql = 'SELECT id FROM users WHERE username = ?';
 
 		if ($stmt = $mysql_db->prepare($sql)) {
 			// Set parameter
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (empty($username_err) && empty($password_err) && empty($confirm_err)) {
 
 		// Prepare insert statement
-		$sql = 'INSERT INTO login (username, password) VALUES (?,?)';
+		$sql = 'INSERT INTO users (username, password) VALUES (?,?)';
 
 		if ($stmt = $mysql_db->prepare($sql)) {
 
