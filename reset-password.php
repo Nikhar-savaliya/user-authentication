@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty(trim($_POST['new_password']))) {
         $new_password_err = 'Please enter the new password.';
     } elseif (strlen(trim($_POST['new_password'])) < 6) {
-        $new_password_err = 'Password must have atleast 6 characters.';
+        $new_password_err = 'Password must have at least 6 characters.';
     } else {
         $new_password = trim($_POST['new_password']);
     }
@@ -77,19 +77,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+    <style>
         .wrapper {
-            width: 500px;
+            max-width: 500px;
+            margin: 50px auto;
             padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
 
         .wrapper h2 {
-            text-align: center
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .wrapper form .form-group span {
-            color: red;
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.has-error {
+            color: red; 
         }
     </style>
 </head>
@@ -98,25 +109,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="container wrapper">
         <section>
             <h2>Reset Password</h2>
-            <p>Please fill out this form to reset your password.</p>
+            <p class="lead text-center">Please fill out this form to reset your password.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
-                    <label>New Password</label>
-                    <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+                    <label for="new_password">New Password</label>
+                    <input type="password" name="new_password" id="new_password" class="form-control"
+                        value="<?php echo $new_password; ?>">
                     <span class="help-block"><?php echo $new_password_err; ?></span>
                 </div>
                 <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                    <label>Confirm Password</label>
-                    <input type="password" name="confirm_password" class="form-control">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control">
                     <span class="help-block"><?php echo $confirm_password_err; ?></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-block btn-primary" value="Submit">
-                    <a class="btn btn-block btn-link bg-light" href="welcome.php">Cancel</a>
+                    <input type="submit" class="btn btn-primary btn-block" value="Submit">
+                    <a class="btn btn-light btn-block" href="welcome.php">Cancel</a>
                 </div>
             </form>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

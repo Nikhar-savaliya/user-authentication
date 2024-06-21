@@ -73,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
               // Display an error for password mismatch
               $password_err = 'Invalid password';
-              echo password_verify($password, $hashed_password) ? "true" : "false";
             }
           }
         } else {
@@ -95,50 +94,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Sign in</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <style>
-    .wrapper {
-      width: 500px;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
 
-    .wrapper h2 {
-      text-align: center
-    }
+        .wrapper h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .wrapper form .form-group span {
-      color: red;
-    }
-  </style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.has_error {
+            color: red; 
+        }
+    </style>
 </head>
 
 <body>
-  <main>
-    <section class="container wrapper">
-      <h2 class="display-4 pt-3">Login</h2>
-      <p class="text-center">Please fill this form to create an account.</p>
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <div class="form-group <?php (!empty($username_err)) ? 'has_error' : ''; ?>">
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
-          <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
+    <main>
+        <section class="container wrapper">
+            <h2 class="display-4">Login</h2>
+            <p class="lead text-center">Please fill this form to login.</p>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                <div class="form-group <?php echo (!empty($username_err)) ? 'has_error' : ''; ?>">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control"
+                        value="<?php echo $username ?>">
+                    <span class="help-block"><?php echo $username_err; ?></span>
+                </div>
 
-        <div class="form-group <?php (!empty($password_err)) ? 'has_error' : ''; ?>">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
-          <span class="help-block"><?php echo $password_err; ?></span>
-        </div>
+                <div class="form-group <?php echo (!empty($password_err)) ? 'has_error' : ''; ?>">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control"
+                        value="<?php echo $password ?>">
+                    <span class="help-block"><?php echo $password_err; ?></span>
+                </div>
 
-        <div class="form-group">
-          <input type="submit" class="btn btn-block btn-outline-primary" value="login">
-        </div>
-        <p>Don't have an account? <a href="register.php">Sign in</a>.</p>
-      </form>
-    </section>
-  </main>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                </div>
+                <p class="text-center">Don't have an account? <a href="register.php">Sign up</a>.</p>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
+</html>
+
 
 </html>
